@@ -2,9 +2,9 @@
 #include <Adafruit_NeoPixel.h>
 #include <EEPROM.h>
 
-const int rtc_CLK = 6;
-const int rtc_DATA = 7;
-const int rtc_CE = 8;
+const int rtc_CLK = A5;
+const int rtc_DATA = A4;
+const int rtc_CE = A3;
 const int boutonHeure = 10;
 const int boutonMinute = 11;
 const int boutonCouleur = 12;
@@ -234,29 +234,29 @@ void loop() {
     pixels.setPixelColor(63, lumR[nColor], lumG[nColor], lumB[nColor]);  // D
     pixels.setPixelColor(62, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
   }
-  if (rtc.minute < 5) {
-  } else if (rtc.minute < 10) {
+  if (myMinute < 5) {
+  } else if (myMinute < 10) {
     pixels.setPixelColor(15, lumR[nColor], lumG[nColor], lumB[nColor]);  // C
     pixels.setPixelColor(14, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
     pixels.setPixelColor(13, lumR[nColor], lumG[nColor], lumB[nColor]);  // N
     pixels.setPixelColor(12, lumR[nColor], lumG[nColor], lumB[nColor]);  // Q
-  } else if (rtc.minute < 15) {
+  } else if (myMinute < 15) {
     pixels.setPixelColor(35, lumR[nColor], lumG[nColor], lumB[nColor]);  // D
     pixels.setPixelColor(34, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
     pixels.setPixelColor(33, lumR[nColor], lumG[nColor], lumB[nColor]);  // X
-  } else if (rtc.minute < 20) {
+  } else if (myMinute < 20) {
     pixels.setPixelColor(29, lumR[nColor], lumG[nColor], lumB[nColor]);  // Q
     pixels.setPixelColor(28, lumR[nColor], lumG[nColor], lumB[nColor]);  // U
     pixels.setPixelColor(27, lumR[nColor], lumG[nColor], lumB[nColor]);  // A
     pixels.setPixelColor(26, lumR[nColor], lumG[nColor], lumB[nColor]);  // R
     pixels.setPixelColor(25, lumR[nColor], lumG[nColor], lumB[nColor]);  // T
-  } else if (rtc.minute < 25) {
+  } else if (myMinute < 25) {
     pixels.setPixelColor(21, lumR[nColor], lumG[nColor], lumB[nColor]);  // V
     pixels.setPixelColor(20, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
     pixels.setPixelColor(19, lumR[nColor], lumG[nColor], lumB[nColor]);  // N
     pixels.setPixelColor(18, lumR[nColor], lumG[nColor], lumB[nColor]);  // G
     pixels.setPixelColor(17, lumR[nColor], lumG[nColor], lumB[nColor]);  // T
-  } else if (rtc.minute < 30) {
+  } else if (myMinute < 30) {
     pixels.setPixelColor(21, lumR[nColor], lumG[nColor], lumB[nColor]);  // V
     pixels.setPixelColor(20, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
     pixels.setPixelColor(19, lumR[nColor], lumG[nColor], lumB[nColor]);  // N
@@ -267,7 +267,7 @@ void loop() {
     pixels.setPixelColor(14, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
     pixels.setPixelColor(13, lumR[nColor], lumG[nColor], lumB[nColor]);  // N
     pixels.setPixelColor(12, lumR[nColor], lumG[nColor], lumB[nColor]);  // Q
-  } else if (rtc.minute < 35) {
+  } else if (myMinute < 35) {
     pixels.setPixelColor(0, lumR[nColor], lumG[nColor], lumB[nColor]);  // E
     pixels.setPixelColor(1, lumR[nColor], lumG[nColor], lumB[nColor]);  // T
     pixels.setPixelColor(6, lumR[nColor], lumG[nColor], lumB[nColor]);  // D
@@ -277,7 +277,7 @@ void loop() {
     if (heureDisplay != 0 && heureDisplay != 12) {
       pixels.setPixelColor(7, lumR[nColor], lumG[nColor], lumB[nColor]);  // E
     }
-  } else if (rtc.minute < 40) {
+  } else if (myMinute < 40) {
     pixels.setPixelColor(43, lumR[nColor], lumG[nColor], lumB[nColor]);  // M
     pixels.setPixelColor(42, lumR[nColor], lumG[nColor], lumB[nColor]);  // O
     pixels.setPixelColor(41, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
@@ -293,7 +293,7 @@ void loop() {
     pixels.setPixelColor(14, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
     pixels.setPixelColor(13, lumR[nColor], lumG[nColor], lumB[nColor]);  // N
     pixels.setPixelColor(12, lumR[nColor], lumG[nColor], lumB[nColor]);  // Q
-  } else if (rtc.minute < 45) {
+  } else if (myMinute < 45) {
     pixels.setPixelColor(43, lumR[nColor], lumG[nColor], lumB[nColor]);  // M
     pixels.setPixelColor(42, lumR[nColor], lumG[nColor], lumB[nColor]);  // O
     pixels.setPixelColor(41, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
@@ -304,7 +304,7 @@ void loop() {
     pixels.setPixelColor(19, lumR[nColor], lumG[nColor], lumB[nColor]);  // N
     pixels.setPixelColor(18, lumR[nColor], lumG[nColor], lumB[nColor]);  // G
     pixels.setPixelColor(17, lumR[nColor], lumG[nColor], lumB[nColor]);  // T
-  } else if (rtc.minute < 50) {
+  } else if (myMinute < 50) {
     pixels.setPixelColor(43, lumR[nColor], lumG[nColor], lumB[nColor]);  // M
     pixels.setPixelColor(42, lumR[nColor], lumG[nColor], lumB[nColor]);  // O
     pixels.setPixelColor(41, lumR[nColor], lumG[nColor], lumB[nColor]);  // I
@@ -315,7 +315,7 @@ void loop() {
     pixels.setPixelColor(27, lumR[nColor], lumG[nColor], lumB[nColor]);  // A
     pixels.setPixelColor(26, lumR[nColor], lumG[nColor], lumB[nColor]);  // R
     pixels.setPixelColor(25, lumR[nColor], lumG[nColor], lumB[nColor]);  // T
-  } else if (rtc.minute < 55) {
+  } else if (myMinute < 55) {
     pixels.setPixelColor(43, lumR[nColor], lumG[nColor], lumB[nColor]);  // M
     pixels.setPixelColor(42, lumR[nColor], lumG[nColor], lumB[nColor]);  // O
     pixels.setPixelColor(41, lumR[nColor], lumG[nColor], lumB[nColor]);  // I

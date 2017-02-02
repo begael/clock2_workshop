@@ -1,9 +1,9 @@
 #include <Superbe_rtc_DS1302.h>
 #include <Adafruit_NeoPixel.h>
 
-const int rtc_CLK = 6;
-const int rtc_DATA = 7;
-const int rtc_CE = 8;
+const int rtc_CLK = A5;
+const int rtc_DATA = A4;
+const int rtc_CE = A3;
 const int boutonHeure = 10;
 const int boutonMinute = 11;
 const int boutonCouleur = 12;
@@ -23,7 +23,7 @@ void setup() {
   pixels.show();
   Serial.begin(9600);
   Serial.println("bonjour.");
-  //rtc.writeDateTime(15, 2, 23, 1, 23, 28, 30);  //!!! pas 2015 !!! pour mettre à l'heure
+  rtc.writeDateTime(17, 2, 1, 3, 18, 56, 00);  //!!! pas 2015 !!! pour mettre à l'heure
 }
 
 void loop() {
